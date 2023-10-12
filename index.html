@@ -16,17 +16,51 @@
     <div id="root"></div>
     <script type="text/babel">
 
-      // App
-      function MyApp() {
-        return <h1>Hello, world!</h1>;
+      function randomInteger(topNumber) {
+        return Math.floor(Math.random() * topNumber) + 1 
+      }
+
+      function arrayRandomItem(arr) {
+        const randomIndex = Math.floor(Math.random() * arr.length) 
+        console.log('randomIndex', randomIndex, arr)
+        return arr[ randomIndex ]
+      }
+
+      function getRandomAcimYoutubeLink() {
+        const video1_time = 60*60*8 + 60*47 + 56
+        const video2_time = 60*60*9 + 60*3 + 42
+        const video3_time = 60*60*10 + 60*49 + 49
+        const video4_time = 60*60*8 + 60*45 + 16
+
+
+        const video1_link = "https://www.youtube.com/embed/5hWJN4J-nyI"
+        const video2_link = "https://www.youtube.com/embed/hke9xRWiVZw"
+        const video3_link = "https://www.youtube.com/embed/GBrh2bXrwZg"
+        const video4_link = "https://www.youtube.com/embed/16TlrcW3eGI"
+
+
+        const collection = [ [video1_link, video1_time], [video2_link, video2_time], [video3_link, video3_time], [video4_link, video4_time] ] 
+
+        const random_video = arrayRandomItem(collection)
+
+        const random_time = randomInteger( random_video[1] )
+
+        return `${random_video[0]}?start=${random_time}`
+      }
+
+      // Main Template
+      function App() {
+        return (
+          <div>
+            <iframe width="560" height="315" src={getRandomAcimYoutubeLink()} title="ACIM video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        )
       }
 
       // Root
       const container = document.getElementById('root');
       const root = ReactDOM.createRoot(container);
-      root.render(
-        <MyApp />
-      );
+      root.render( <App /> );
 
     </script>
   </body>
