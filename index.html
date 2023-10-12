@@ -1,29 +1,53 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <title>ACIM Randomizer</title>
+
+    <!-- Add React-->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel JSX engine. Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
 
   <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+      // App
+      function MyApp() {
+        return <h1>Hello, world!</h1>;
+      }
+
+      // Root
+      const container = document.getElementById('root');
+      const root = ReactDOM.createRoot(container);
+      root.render(
+        <MyApp />
+      );
+
+    </script>
   </body>
 
+  <style>
+    html {
+      height: 100%;
+      background: #170a3d;
+      color: #dfa013;
+      font-family: "Playfair Display";
+    }
+
+    body {
+      display: flex;
+      flex-flow: column;
+      justify-content: space-around;
+      height: 100%;
+    }
+
+    div {
+      text-align: center;
+    }
+  </style>
 </html>
-
-<style>
-  html {
-    height: 100%;
-    background: #170a3d;
-    color: #dfa013;
-    font-family: "Playfair Display";
-  }
-
-  body {
-    display: flex;
-    flex-flow: column;
-    justify-content: space-around;
-    height: 100%;
-  }
-
-  div {
-    text-align: center;
-  }
-</style>
