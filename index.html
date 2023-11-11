@@ -95,26 +95,50 @@
       text-align: center;
     }
     
+    /*.container { */
+    /*  position: relative; */
+    /*  overflow: hidden; */
+    /*  width: 100%; */
+    /*  padding-top: 56.25%; /1* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) *1/ */
+    /*} */
+
+    /*/1* Then style the iframe to fit in the container div with full height and width *1/ */
+    /*.responsive-iframe { */
+    /*  position: absolute; */
+    /*  top: 0; */
+    /*  left: 0; */
+    /*  bottom: 0; */
+    /*  right: 0; */
+    /*  width: 100%; */
+    /*  height: 100%; */
+    /*  max-width: 560px; */
+    /*  margin: auto; */
+    /*} */
+
+    /*/1*https://www.w3schools.com/howto/howto_css_responsive_iframes.asp*/
+
     .container {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+
     }
 
-    /* Then style the iframe to fit in the container div with full height and width */
     .responsive-iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      max-width: 560px;
-      margin: auto;
+      width: 30rem;
+      height: 25rem;
     }
 
-    /*https://www.w3schools.com/howto/howto_css_responsive_iframes.asp*/
+
+    @media only screen and (max-width: 768px) {
+    /* medium */
+      html {
+        font-size: 15px;
+      }
+    }
+
+    @media only screen and (max-width: 560px) {
+    /* small */
+      html {
+        font-size: 10px;
+      }
+    }
   </style>
 </html>
