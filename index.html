@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>ACIM Randomizer</title>
 
-    <!-- Add React-->
+    <!-- React-->
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-    <!-- Babel JSX engine. Don't use this in production: -->
+    <!-- Babel JSX engine. For React -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
 
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-SLEHJ07S8D"></script>
@@ -19,7 +19,6 @@
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
 	  gtag('js', new Date());
-
 	  gtag('config', 'G-SLEHJ07S8D');
 	</script>
   </head>
@@ -28,15 +27,21 @@
     <div id="root"></div>
     <script type="text/babel">
 
-      const sayings = [
-        {
-          quote: 'Would you be hostage to the ego, or host to God?',
-          source: {
-            time: '7:49:39',
-            videoLink: 'https://youtu.be/hke9xRWiVZw',
-          },
-        },
-      ]
+      // Main Template
+      function App() {
+        return (
+          <div className="container">
+            <iframe className="responsive-iframe" src={getRandomAcimYoutubeLink()} title="ACIM video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+			<h2>{getChapterSection()}</h2>
+          </div>
+        )
+      }
+
+      // Root
+      const container = document.getElementById('root');
+      const root = ReactDOM.createRoot(container);
+      root.render( <App /> );
+
 
       function randomInteger(topNumber) {
         return Math.floor(Math.random() * topNumber) + 1 
@@ -48,6 +53,7 @@
         return arr[ randomIndex ]
       }
 
+	  /* import Videos from './video_list.js' */
       function getRandomAcimYoutubeLink() {
         const video1_time = 60*60*8 + 60*47 + 56
         const video2_time = 60*60*9 + 60*3 + 42
@@ -70,20 +76,8 @@
         return `${random_video[0]}?start=${random_time}`
       }
 
-      // Main Template
-      function App() {
-        return (
-          <div className="container">
-            <iframe className="responsive-iframe" src={getRandomAcimYoutubeLink()} title="ACIM video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-          </div>
-        )
-      }
-
-      // Root
-      const container = document.getElementById('root');
-      const root = ReactDOM.createRoot(container);
-      root.render( <App /> );
-
+	  function getChapterSection() {
+	  }
     </script>
   </body>
 
